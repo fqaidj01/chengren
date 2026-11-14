@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>星航极速导航 (StarGPS) - 2026全球精选中文老司机网址导航 · 永不迷路的绅士GPS</title>
+  <meta name="description" content="星航极速导航(StarGPS)是2026年全新一代中文成人网址导航与资源领航门户。精选全球免费视频、亚洲精品、欧美4K名厂、动漫里番、8K VR、成人百科知识图谱、手机竖屏短剧与前沿AI神器，智能测速防屏蔽，纯净无广告弹窗。" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            star: {
+              black: '#070a13',
+              dark: '#0d1322',
+              surface: '#131b2e',
+              card: '#18223a',
+              border: '#233354',
+              accent: '#38bdf8',
+              accentHover: '#0284c7',
+              gold: '#fbbf24',
+              emerald: '#10b981',
+              pink: '#f43f5e',
+              muted: '#94a3b8'
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang SC"', '"Hiragino Sans GB"', '"Microsoft YaHei"', 'Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Consolas', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    body {
+      background-color: #070a13;
+      color: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .stargps-glow {
+      background: radial-gradient(circle 900px at 50% -120px, rgba(56, 189, 248, 0.15), rgba(251, 191, 36, 0.08), transparent 70%);
+    }
+
+    .site-card-hover {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .site-card-hover:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6), 0 0 15px rgba(56, 189, 248, 0.2);
+      border-color: rgba(56, 189, 248, 0.5);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070a13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #233354;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #38bdf8;
+    }
+
+    .glow-badge {
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.35);
+    }
+  </style>
+</head>
+<body class="selection:bg-star-accent selection:text-black">
+
+  <!-- ================= TOP NOTICE BAR (LINK 1) ================= -->
+  <div class="bg-gradient-to-r from-sky-950 via-slate-900 to-sky-950 border-b border-sky-500/30 py-2 px-4 text-xs text-center relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap text-slate-300">
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-bold bg-sky-500/20 text-sky-300 border border-sky-500/40 glow-badge">
+        <i data-lucide="radio" class="w-3.5 h-3.5 text-sky-400 animate-pulse"></i> 官方领航发布
+      </span>
+      <span>请按下 <strong>Ctrl + D</strong> 收藏本站或保存永久防迷路地址。官方特别推荐：</span>
+      <!-- LINK 1 OF 4 -->
+      <a href="https://chengrenbaike.com" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-bold underline underline-offset-4 transition flex items-center gap-1">
+        成人百科 深度收录 <i data-lucide="external-link" class="w-3 h-3"></i>
+      </a>
+      <span class="text-slate-500 hidden md:inline">| 中文圈最全行业维基实体图谱</span>
+    </div>
+  </div>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-40 bg-star-black/90 backdrop-blur-md border-b border-star-border/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 via-blue-600 to-indigo-600 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-sky-500/25 group-hover:scale-105 transition">
+          <i data-lucide="compass" class="w-6 h-6 text-white animate-spin-slow"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg sm:text-xl font-black tracking-tight text-white">星航极速导航</span>
+            <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-400 border border-sky-500/30">StarGPS</span>
+          </div>
+          <p class="text-[10px] text-slate-400 hidden sm:block">全球精选中文老司机网址导航 · 永不迷路的绅士GPS</p>
+        </div>
+      </a>
+
+      <!-- Instant Live Search Bar -->
+      <div class="flex-1 max-w-lg hidden md:block">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input type="text" id="live-search-input" oninput="handleSearch(this.value)" placeholder="全站检索 80+ 严选平台、标签（如：4K、免翻、里番、VR、百科）..." class="w-full bg-star-surface border border-star-border rounded-xl pl-10 pr-4 py-2 text-xs sm:text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-sky-400 transition" />
+          <span id="search-count" class="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 font-mono"></span>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex items-center gap-3">
+        <button onclick="bookmarkSite()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium border border-slate-700 transition">
+          <i data-lucide="bookmark" class="w-3.5 h-3.5 text-amber-400"></i> Ctrl+D 收藏
+        </button>
+        <a href="#speed-test" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-bold text-xs shadow-md transition">
+          <i data-lucide="gauge" class="w-3.5 h-3.5"></i> 节点测速
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Mobile Search Bar -->
+    <div class="p-3 border-t border-star-border/60 bg-star-surface/50 md:hidden">
+      <div class="relative">
+        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+        <input type="text" oninput="handleSearch(this.value)" placeholder="搜索 80+ 平台、标签或关键词..." class="w-full bg-star-card border border-star-border rounded-lg pl-9 pr-4 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-sky-400" />
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO & SEARCH AGGREGATOR ================= -->
+  <section class="relative pt-8 pb-12 px-4 sm:px-6 lg:px-8 stargps-glow">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Announcement & Meta Bar -->
+      <div class="flex items-center justify-between flex-wrap gap-4 mb-6 bg-star-surface/80 p-3.5 rounded-2xl border border-star-border">
+        <div class="flex items-center gap-3 text-xs">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+          <span class="text-slate-300">
+            <strong>节点监控：</strong> 全球 24 个 CDN 镜像加速节点在线率 <strong>99.98%</strong>，无死链、纯净无病毒。
+          </span>
+        </div>
+        <div class="flex items-center gap-2 text-xs text-slate-400 font-mono">
+          <span>更新时间：2026-11</span>
+          <span class="text-slate-600">•</span>
+          <span class="text-sky-400">已收录：86 个优质站点</span>
+        </div>
+      </div>
+
+      <!-- Quick Shortcuts Bar (LINK 2) -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar text-xs">
+        <span class="text-slate-500 font-bold shrink-0">快捷直达：</span>
+        <a href="#cat-top" class="px-3 py-1 rounded-lg bg-star-card hover:bg-slate-700 text-slate-300 shrink-0 border border-star-border transition">🔥 每日必刷</a>
+        <a href="#cat-free" class="px-3 py-1 rounded-lg bg-star-card hover:bg-slate-700 text-slate-300 shrink-0 border border-star-border transition">🎬 免费视频</a>
+        <a href="#cat-asia" class="px-3 py-1 rounded-lg bg-star-card hover:bg-slate-700 text-slate-300 shrink-0 border border-star-border transition">🇯🇵 亚洲东方</a>
+        <a href="#cat-west" class="px-3 py-1 rounded-lg bg-star-card hover:bg-slate-700 text-slate-300 shrink-0 border border-star-border transition">💎 欧美4K</a>
+        <a href="#cat-anime" class="px-3 py-1 rounded-lg bg-star-card hover:bg-slate-700 text-slate-300 shrink-0 border border-star-border transition">🎨 动漫里番</a>
+        <a href="#cat-vr" class="px-3 py-1 rounded-lg bg-star-card hover:bg-slate-700 text-slate-300 shrink-0 border border-star-border transition">🥽 8K VR</a>
+        <a href="#cat-wiki" class="px-3 py-1 rounded-lg bg-star-card hover:bg-slate-700 text-slate-300 shrink-0 border border-star-border transition">📚 维基百科</a>
+        <!-- LINK 2 OF 4 -->
+        <a href="https://chengrenbaike.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 shrink-0 border border-amber-500/40 font-bold transition flex items-center gap-1">
+          <span>成人百科 检索</span>
+          <i data-lucide="external-link" class="w-3 h-3 text-amber-400"></i>
+        </a>
+      </div>
+
+      <!-- ================= SECTION 1: 每日必刷 · 殿堂顶流 (PINNED TOP 8) ================= -->
+      <div id="cat-top" class="mb-12">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+            <span class="w-2.5 h-5 rounded-sm bg-amber-400 inline-block"></span>
+            <span>🔥 每日必刷 · 殿堂顶流推荐 (TOP 8)</span>
+          </h3>
+          <span class="text-xs text-amber-400 font-medium">老司机日常首选</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <!-- VIP 1: 成人百科 (LINK 3) -->
+          <div class="site-card-item site-card-hover p-4 rounded-xl bg-gradient-to-br from-amber-950/40 via-star-surface to-star-card border-2 border-amber-500/50 flex flex-col justify-between" data-name="成人百科" data-tags="百科 知识 图谱 维基 女优 实体 番号 权威">
+            <div>
+              <div class="flex items-start justify-between mb-2">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-amber-500 text-black font-black text-sm flex items-center justify-center shadow">
+                    百科
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white flex items-center gap-1">
+                      成人百科
+                      <span class="px-1 py-0.2 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono">9.9</span>
+                    </h4>
+                    <span class="text-[11px] text-amber-400 font-medium">中文产业维基实体图谱</span>
+                  </div>
+                </div>
+                <span class="px-1.5 py-0.5 rounded bg-amber-500 text-black text-[10px] font-bold">必看</span>
+              </div>
+              <p class="text-xs text-slate-300 mb-3 leading-relaxed">
+                华语最全行业实体资料库！收录女优演员出道编年史、片商图谱与番号查验，全免费无弹窗。
+              </p>
+            </div>
+            <!-- LINK 3 OF 4 -->
+            <div class="pt-2 border-t border-amber-500/20 flex items-center justify-between">
+              <span class="text-[10px] text-slate-400">全免费·零广告</span>
+              <a href="https://chengrenbaike.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-amber-500 hover:bg-amber-600 text-black font-black text-xs flex items-center gap-1 transition">
+                <span>直达成人百科</span> <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- TOP 2: XVideos -->
+          <div class="site-card-item site-card-hover p-4 rounded-xl bg-star-surface border border-star-border flex flex-col justify-between" data-name="XVideos" data-tags="xvideos 免费 视频 巨头 手机 秒开">
+            <div>
+              <div class="flex items-start justify-between mb-2">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-red-600/20 border border-red-500/30 text-red-400 font-black text-sm flex items-center justify-center">
+                    XV
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white flex items-center gap-1">
+                      XVideos
+                      <span class="px-1 py-0.2 rounded bg-red-500/20 text-red-300 text-[10px] font-mono">9.8</span>
+                    </h4>
+                    <span class="text-[11px] text-slate-400">全球流量第一巨擘</span>
+                  </div>
+                </div>
+                <span class="px-1.5 py-0.5 rounded bg-red-900/60 text-red-300 text-[10px] font-bold">HOT</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-3 leading-relaxed">
+                全球访问量最大的老牌免费视频站，超强服务器秒级加载，海量原创与精选内容。
+              </p>
+            </div>
+            <div class="pt-2 border-t border-star-border/60 flex items-center justify-between">
+              <span class="text-[10px] text-slate-500">免翻镜像多</span>
+              <a href="https://xvideos.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1 transition">
+                <span>直达官网</span> <i data-lucide="chevron-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- TOP 3: Pornhub -->
+          <div class="site-card-item site-card-hover p-4 rounded-xl bg-star-surface border border-star-border flex flex-col justify-between" data-name="Pornhub" data-tags="pornhub ph 免费 社区 创作者 4k">
+            <div>
+              <div class="flex items-start justify-between mb-2">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 font-black text-sm flex items-center justify-center">
+                    PH
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white flex items-center gap-1">
+                      Pornhub
+                      <span class="px-1 py-0.2 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono">9.7</span>
+                    </h4>
+                    <span class="text-[11px] text-slate-400">全球最知名流行门户</span>
+                  </div>
+                </div>
+                <span class="px-1.5 py-0.5 rounded bg-amber-900/60 text-amber-300 text-[10px] font-bold">认证</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-3 leading-relaxed">
+                正规认证创作者生态，互动社区完善，高清4K画质，支持VR模式与智能推荐。
+              </p>
+            </div>
+            <div class="pt-2 border-t border-star-border/60 flex items-center justify-between">
+              <span class="text-[10px] text-slate-500">创作者认证</span>
+              <a href="https://pornhub.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1 transition">
+                <span>直达官网</span> <i data-lucide="chevron-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- TOP 4: SpankBang -->
+          <div class="site-card-item site-card-hover p-4 rounded-xl bg-star-surface border border-star-border flex flex-col justify-between" data-name="SpankBang" data-tags="spankbang 4k 免费 画质 高清 投屏">
+            <div>
+              <div class="flex items-start justify-between mb-2">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-purple-600/20 border border-purple-500/30 text-purple-400 font-black text-sm flex items-center justify-center">
+                    SB
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white flex items-center gap-1">
+                      SpankBang
+                      <span class="px-1 py-0.2 rounded bg-purple-500/20 text-purple-300 text-[10px] font-mono">9.6</span>
+                    </h4>
+                    <span class="text-[11px] text-slate-400">免费真 4K 画质王者</span>
+                  </div>
+                </div>
+                <span class="px-1.5 py-0.5 rounded bg-purple-900/60 text-purple-300 text-[10px] font-bold">4K</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-3 leading-relaxed">
+                无需会员畅看超清 4K 高码率原片，内置强大播放器，倍速与智能投屏极为流畅。
+              </p>
+            </div>
+            <div class="pt-2 border-t border-star-border/60 flex items-center justify-between">
+              <span class="text-[10px] text-slate-500">超高分辨率</span>
+              <a href="https://spankbang.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1 transition">
+                <span>直达官网</span> <i data-lucide="chevron-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- TOP 5: Hanime.tv -->
+          <div class="site-card-item site-card-hover p-4 rounded-xl bg-star-surface border border-star-border flex flex-col justify-between" data-name="Hanime.tv" data-tags="hanime 里番 动漫 hentai 二次元 1080p">
+            <div>
+              <div class="flex items-start justify-between mb-2">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-pink-600/20 border border-pink-500/30 text-pink-400 font-black text-sm flex items-center justify-center">
+                    HA
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white flex items-center gap-1">
+                      Hanime.tv
+                      <span class="px-1 py-0.2 rounded bg-pink-500/20 text-pink-300 text-[10px] font-mono">9.7</span>
+                    </h4>
+                    <span class="text-[11px] text-slate-400">二次元里番流媒体天花板</span>
+                  </div>
+                </div>
+                <span class="px-1.5 py-0.5 rounded bg-pink-900/60 text-pink-300 text-[10px] font-bold">ACG</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-3 leading-relaxed">
+                全球最大的高清里番在线流媒体，1080P无修生肉与熟肉，弹幕吐槽与多端适配极佳。
+              </p>
+            </div>
+            <div class="pt-2 border-t border-star-border/60 flex items-center justify-between">
+              <span class="text-[10px] text-slate-500">全高清无修</span>
+              <a href="https://hanime.tv" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1 transition">
+                <span>直达官网</span> <i data-lucide="chevron-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- TOP 6: Vixen Media Group -->
+          <div class="site-card-item site-card-hover p-4 rounded-xl bg-star-surface border border-star-border flex flex-col justify-between" data-name="Vixen" data-tags="vixen blacked 4k 电影 摄影 唯美 艺术">
+            <div>
+              <div class="flex items-start justify-between mb-2">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-zinc-200 text-black font-black text-sm flex items-center justify-center">
+                    VX
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white flex items-center gap-1">
+                      Vixen Media Group
+                      <span class="px-1 py-0.2 rounded bg-zinc-700 text-zinc-300 text-[10px] font-mono">9.8</span>
+                    </h4>
+                    <span class="text-[11px] text-slate-400">摄影与审美构图天花板</span>
+                  </div>
+                </div>
+                <span class="px-1.5 py-0.5 rounded bg-zinc-700 text-zinc-200 text-[10px] font-bold">高端</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-3 leading-relaxed">
+                旗下涵盖 Blacked, Tushy, Deeper 等世界级名厂，电影级布景打光与时尚美学。
+              </p>
+            </div>
+            <div class="pt-2 border-t border-star-border/60 flex items-center justify-between">
+              <span class="text-[10px] text-slate-500">电影级大片</span>
+              <a href="https://vixen.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1 transition">
+                <span>直达官网</span> <i data-lucide="chevron-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- TOP 7: SexLikeReal (VR) -->
+          <div class="site-card-item site-card-hover p-4 rounded-xl bg-star-surface border border-star-border flex flex-col justify-between" data-name="SexLikeReal" data-tags="slr vr 8k 沉浸 quest visionpro 头显">
+            <div>
+              <div class="flex items-start justify-between mb-2">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-cyan-600/20 border border-cyan-500/30 text-cyan-400 font-black text-sm flex items-center justify-center">
+                    VR
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white flex items-center gap-1">
+                      SexLikeReal (SLR)
+                      <span class="px-1 py-0.2 rounded bg-cyan-500/20 text-cyan-300 text-[10px] font-mono">9.9</span>
+                    </h4>
+                    <span class="text-[11px] text-slate-400">全球 8K VR 视界霸主</span>
+                  </div>
+                </div>
+                <span class="px-1.5 py-0.5 rounded bg-cyan-900/60 text-cyan-300 text-[10px] font-bold">8K</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-3 leading-relaxed">
+                原生适配 Meta Quest 2/3、Apple Vision Pro，超沉浸 3D 180°/360° 视听体验。
+              </p>
+            </div>
+            <div class="pt-2 border-t border-star-border/60 flex items-center justify-between">
+              <span class="text-[10px] text-slate-500">体感外设联动</span>
+              <a href="https://sexlikereal.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1 transition">
+                <span>直达官网</span> <i data-lucide="chevron-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- TOP 8: nhentai -->
+          <div class="site-card-item site-card-hover p-4 rounded-xl bg-star-surface border border-star-border flex flex-col justify-between" data-name="nhentai" data-tags="nhentai 漫画 同人志 本子 汉化 6位代码">
+            <div>
+              <div class="flex items-start justify-between mb-2">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-rose-600/20 border border-rose-500/30 text-rose-400 font-black text-sm flex items-center justify-center">
+                    NH
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white flex items-center gap-1">
+                      nhentai
+                      <span class="px-1 py-0.2 rounded bg-rose-500/20 text-rose-300 text-[10px] font-mono">9.8</span>
+                    </h4>
+                    <span class="text-[11px] text-slate-400">同人本与漫画世界座标</span>
+                  </div>
+                </div>
+                <span class="px-1.5 py-0.5 rounded bg-rose-900/60 text-rose-300 text-[10px] font-bold">经典</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-3 leading-relaxed">
+                神秘六位代号发源地，海量高清同人本与中文汉化版，极简阅读器支持手机秒翻。
+              </p>
+            </div>
+            <div class="pt-2 border-t border-star-border/60 flex items-center justify-between">
+              <span class="text-[10px] text-slate-500">中文汉化多</span>
+              <a href="https://nhentai.net" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1 transition">
+                <span>直达官网</span> <i data-lucide="chevron-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= MAIN MULTI-CATEGORY DIRECTORY ================= -->
+  <main class="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+    
+    <!-- CATEGORY: 免费视频巨擘 -->
+    <section id="cat-free" class="category-block">
+      <div class="flex items-center justify-between mb-4 border-b border-star-border/80 pb-3">
+        <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <i data-lucide="video" class="w-5 h-5 text-sky-400"></i>
+          <span>🎬 全球免费视频巨擘 (Free Tubes)</span>
+        </h3>
+        <span class="text-xs text-slate-400">海量片库 · 零门槛畅享</span>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+        
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="XNXX" data-tags="xnxx 免费 极简 高速 手机">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">XNXX</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.5 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">轻量级极简高速站，对弱网手机极其友好。</p>
+          <a href="https://xnxx.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="RedTube" data-tags="redtube 免费 经典 欧美 视频">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">RedTube</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.4 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">老牌欧美视频站，UI排版精致，高清分类清晰。</p>
+          <a href="https://redtube.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="YouPorn" data-tags="youporn 免费 怀旧 经典 欧美">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">YouPorn</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.3 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">经典欧美老牌门户，社区评分与标签体系成熟。</p>
+          <a href="https://youporn.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="Tube8" data-tags="tube8 免费 原创 视频 播放">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Tube8</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.2 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">界面轻巧快速，包含大量短视频集锦与切片。</p>
+          <a href="https://tube8.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="Beeg" data-tags="beeg 纯净 极简 无广告 1080p">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Beeg</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.6 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">全网最干净的极简播放器，零多余元素秒开。</p>
+          <a href="https://beeg.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CATEGORY: 亚洲东方专区 -->
+    <section id="cat-asia" class="category-block">
+      <div class="flex items-center justify-between mb-4 border-b border-star-border/80 pb-3">
+        <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <i data-lucide="globe" class="w-5 h-5 text-emerald-400"></i>
+          <span>🇯🇵 亚洲精品 · 东方专区 (Asian & Japanese)</span>
+        </h3>
+        <span class="text-xs text-slate-400">中文字幕 · 无码流出 · 独家企划</span>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+        
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="Jable.tv" data-tags="jable 亚洲 中文字幕 日韩 免费 高清">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Jable.tv</span>
+            <span class="text-[10px] font-mono text-amber-400 font-bold">9.8 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">中文圈极具人气的流媒体，海量正品中文字幕。</p>
+          <a href="https://jable.tv" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="MissAV" data-tags="missav 亚洲 免翻 高清 中文 播放快">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">MissAV</span>
+            <span class="text-[10px] font-mono text-amber-400 font-bold">9.7 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">更新极其神速，支持按番号女优精准索引检索。</p>
+          <a href="https://missav.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="Netflav" data-tags="netflav 亚洲 奈飞风 剧集 中字 4k">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Netflav</span>
+            <span class="text-[10px] font-mono text-amber-400 font-bold">9.6 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">Netflix 式现代 UI 界面设计，中文字幕与多端同步。</p>
+          <a href="https://netflav.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="Supjav" data-tags="supjav 日韩 免费 生肉 独家 番号">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Supjav</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.5 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">海外亚洲片源首发重镇，支持多条云端线路切換。</p>
+          <a href="https://supjav.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="Tktube" data-tags="tktube 亚洲 手机 短视频 抖音风">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Tktube</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.3 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">竖屏抖音沉浸式刷片体验，上下滑动秒切精彩。</p>
+          <a href="https://tktube.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CATEGORY: 欧美名厂与电影级视听 -->
+    <section id="cat-west" class="category-block">
+      <div class="flex items-center justify-between mb-4 border-b border-star-border/80 pb-3">
+        <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <i data-lucide="gem" class="w-5 h-5 text-amber-400"></i>
+          <span>💎 欧美高清 · 电影级名厂 (Western Studios)</span>
+        </h3>
+        <span class="text-xs text-slate-400">顶级画质 · 原生4K · 艺术摄影</span>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+        
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="Brazzers" data-tags="brazzers 欧美 名厂 电影 高清 剧情">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Brazzers</span>
+            <span class="text-[10px] font-mono text-amber-400 font-bold">9.7 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">商业工业片天花板，好莱坞摄影机与专属名角。</p>
+          <a href="https://brazzers.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="Blacked" data-tags="blacked 欧美 艺术 唯美 摄影 4k">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Blacked</span>
+            <span class="text-[10px] font-mono text-amber-400 font-bold">9.8 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">极致的摄影光影美学，构图优美，4K 原盘直出。</p>
+          <a href="https://blacked.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="NaughtyAmerica" data-tags="naughtyamerica 欧美 vr 经典 4k 真实">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Naughty America</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.5 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">主打第一视角真实感，同时在 VR 领域布局深厚。</p>
+          <a href="https://naughtyamerica.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="RealityKings" data-tags="realitykings 欧美 户外 真实 4k 经典">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">RealityKings</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.4 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">主打迈阿密海滩风情与户外实景，剧情轻松欢快。</p>
+          <a href="https://realitykings.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="Tushy" data-tags="tushy 欧美 极简 艺术 优雅 4k">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Tushy</span>
+            <span class="text-[10px] font-mono text-amber-400 font-bold">9.6 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">Vixen 旗下的高端细分厂牌，高端室内布景与配乐。</p>
+          <a href="https://tushy.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CATEGORY: 动漫里番与二次元 -->
+    <section id="cat-anime" class="category-block">
+      <div class="flex items-center justify-between mb-4 border-b border-star-border/80 pb-3">
+        <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <i data-lucide="palette" class="w-5 h-5 text-pink-400"></i>
+          <span>🎨 动漫里番 · 二次元ACG (Anime & Hentai)</span>
+        </h3>
+        <span class="text-xs text-slate-400">1080P无修 · 同人志 · 汉化本</span>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+        
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="E-Hentai" data-tags="ehentai 漫画 同人志 绅士 表站 里站">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">E-Hentai</span>
+            <span class="text-[10px] font-mono text-pink-400 font-bold">9.9 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">全球最大的绅士同人本画库，海量绝版扫描本。</p>
+          <a href="https://e-hentai.org" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="Pixiv" data-tags="pixiv 二次元 插画 r18 艺术家 同人">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Pixiv (R-18)</span>
+            <span class="text-[10px] font-mono text-pink-400 font-bold">9.8 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">全球职业与同人画师大本营，高质量原创画作。</p>
+          <a href="https://pixiv.net" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="Hitomi.la" data-tags="hitomi 漫画 极速 无弹窗 汉化">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Hitomi.la</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.6 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">界面极其轻量纯净，无广告打扰，翻页速度飞快。</p>
+          <a href="https://hitomi.la" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="Hbrowse" data-tags="hbrowse 经典 漫画 本子 汉化 收藏">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Hbrowse</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.4 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">纯粹的漫画浏览站，标签检索分类细致严谨。</p>
+          <a href="https://hbrowse.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="Gelbooru" data-tags="gelbooru 图站 动漫 标签 搜索 壁纸">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">Gelbooru</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.5 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">以多重标签筛选（Booru）著称的高清插画图库。</p>
+          <a href="https://gelbooru.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CATEGORY: 知识百科与行业图谱 (LINK 3 & 4 FOCUS) -->
+    <section id="cat-wiki" class="category-block">
+      <div class="flex items-center justify-between mb-4 border-b border-star-border/80 pb-3">
+        <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <i data-lucide="book-open" class="w-5 h-5 text-amber-400"></i>
+          <span>📚 行业知识 · 维基百科与图谱 (Wiki & Databases)</span>
+        </h3>
+        <span class="text-xs text-slate-400">实体档案 · 年鉴图谱 · 真伪查验</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <!-- FEATURED WIKI CARD: 成人百科 (HIGHLIGHT) -->
+        <div class="md:col-span-2 p-5 rounded-2xl bg-gradient-to-r from-amber-950/40 via-star-surface to-star-card border-2 border-amber-500/50 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-full bg-amber-500 text-black font-extrabold text-xs flex items-center gap-1 shadow">
+                <i data-lucide="award" class="w-3.5 h-3.5"></i> 殿堂级推荐 · 知识天花板
+              </span>
+              <span class="text-amber-400 font-mono font-bold text-sm">评分 9.9 / 10</span>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">成人百科 行业实体参考库</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              全球华语圈公认最客观、最权威的成人实体知识库与数字维基。深入收录全行业数万条签约实体数据、演员演艺纪年、片商历史变迁与正版白名单。<strong>纯净无诱导弹窗、无隐藏扣费</strong>，中文考据与避坑防骗的核心阵地。
+            </p>
+          </div>
+          <div class="flex items-center justify-between flex-wrap gap-3 pt-3 border-t border-amber-500/20">
+            <div class="flex gap-2 text-[11px] text-slate-400">
+              <span class="text-emerald-400">✓ 权威实体图谱</span>
+              <span>•</span>
+              <span class="text-emerald-400">✓ 零商业绑架</span>
+              <span>•</span>
+              <span class="text-amber-400">★ 星航特推</span>
+            </div>
+            <a href="https://chengrenbaike.com" target="_blank" rel="noopener noreferrer" class="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-black text-xs flex items-center gap-1.5 shadow transition">
+              <span>立即直达成人百科查验</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Wiki 2: JavLibrary -->
+        <div class="p-5 rounded-2xl bg-star-surface border border-star-border flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="text-sm font-bold text-white">JavLibrary</h4>
+              <span class="text-xs text-emerald-400 font-mono font-bold">9.3 ★</span>
+            </div>
+            <span class="text-[11px] text-slate-400 block mb-2">经典番号作品与网友打分编目库</span>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              提供极其详细的发行日期、演员阵容与网友真实打分。注意：页面广告偏多，建议搭配拦截工具。
+            </p>
+          </div>
+          <a href="https://javlibrary.com" target="_blank" rel="noopener noreferrer" class="w-full py-2 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-semibold text-center transition">直达访问 ➔</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CATEGORY: 前沿 AI 互动与虚拟现实 -->
+    <section id="cat-vr" class="category-block">
+      <div class="flex items-center justify-between mb-4 border-b border-star-border/80 pb-3">
+        <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <i data-lucide="cpu" class="w-5 h-5 text-cyan-400"></i>
+          <span>🥽 虚拟现实 VR 与前沿 AI 神器 (VR & AI Tools)</span>
+        </h3>
+        <span class="text-xs text-slate-400">8K沉浸视界 · 生成式绘画 · 智能对话</span>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+        
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="SexLikeReal" data-tags="slr vr 8k 沉浸 quest 头显 虚拟现实">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">SexLikeReal (SLR)</span>
+            <span class="text-[10px] font-mono text-cyan-400 font-bold">9.9 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">真 8K 60FPS VR 播放霸主，外设同步震动反馈。</p>
+          <a href="https://sexlikereal.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="PromptChan" data-tags="ai promptchan 生成 绘画 角色定制 智能">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">PromptChan AI</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.5 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">无限制文字生成二次元与写实写实角色，效果惊艳。</p>
+          <a href="https://promptchan.ai" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="VRBangers" data-tags="vrbangers vr 高清 3d 沉浸 原生">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">VR Bangers</span>
+            <span class="text-[10px] font-mono text-cyan-400 font-bold">9.4 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">主打高沉浸近景交互摄影，3D 声学空间定位好。</p>
+          <a href="https://vrbangers.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="CrushOn AI" data-tags="crushon ai 对话 角色 聊天 虚拟女友">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">CrushOn.AI</span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold">9.3 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">智能角色沉浸式互动对话，数千款个性化人格。</p>
+          <a href="https://crushon.ai" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+        <div class="site-card-item site-card-hover p-3.5 rounded-xl bg-star-surface border border-star-border" data-name="VRSmash" data-tags="vr vrsmash 免费 预览 3d 手机头显">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-white text-sm">VRSmash</span>
+            <span class="text-[10px] font-mono text-cyan-400 font-bold">9.2 ★</span>
+          </div>
+          <p class="text-[11px] text-slate-400 line-clamp-2 mb-2">大量免费 VR 片段在线试看，支持普通手机纸盒。</p>
+          <a href="https://vrsmash.com" target="_blank" rel="noopener noreferrer" class="block text-center py-1 rounded-lg bg-star-card hover:bg-slate-700 text-sky-400 text-xs font-medium transition">直达访问 ➔</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION: 节点智能测速与永久发布页 ================= -->
+    <section id="speed-test" class="py-12 bg-star-dark/80 rounded-2xl border border-star-border p-6 sm:p-8">
+      <div class="max-w-3xl mx-auto text-center mb-8">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-950/70 text-sky-400 text-xs font-semibold border border-sky-800/50 mb-3">
+          <i data-lucide="activity" class="w-3.5 h-3.5"></i> 节点智能调度
+        </div>
+        <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">全球镜像节点实时延迟测速</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          星航领航系统自动检测当前网络到各分布式 CDN 边缘节点延迟，为您匹配最优免翻线路。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div class="p-4 rounded-xl bg-star-surface border border-star-border flex items-center justify-between">
+          <div>
+            <div class="text-xs font-bold text-white">🇭🇰 香港极速节点 01</div>
+            <div class="text-[10px] text-slate-500">CN2 GIA 专线直连</div>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-mono text-xs font-bold">24 ms</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-star-surface border border-star-border flex items-center justify-between">
+          <div>
+            <div class="text-xs font-bold text-white">🇯🇵 东京骨干节点 02</div>
+            <div class="text-[10px] text-slate-500">NTT 亚太高防网</div>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-mono text-xs font-bold">48 ms</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-star-surface border border-star-border flex items-center justify-between">
+          <div>
+            <div class="text-xs font-bold text-white">🇸🇬 新加坡路由 03</div>
+            <div class="text-[10px] text-slate-500">Equinix 国际中继</div>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-mono text-xs font-bold">62 ms</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-star-surface border border-star-border flex items-center justify-between">
+          <div>
+            <div class="text-xs font-bold text-white">🇺🇸 洛杉矶大宽带 04</div>
+            <div class="text-[10px] text-slate-500">BGP 全球多线加速</div>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 font-mono text-xs font-bold">135 ms</span>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-star-surface border border-sky-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <div class="flex items-center gap-3">
+          <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400 shrink-0"></i>
+          <div>
+            <div class="font-bold text-white">永久域名防迷路方案</div>
+            <div class="text-slate-400 text-[11px]">发送任意邮件至 <span class="text-sky-400 font-mono">domain@stargps.com</span> 可在 1 秒内收到最新可用镜像名单。</div>
+          </div>
+        </div>
+        <button onclick="bookmarkSite()" class="shrink-0 px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-600 text-white font-bold text-xs transition">
+          保存发布页到桌面
+        </button>
+      </div>
+
+    </section>
+
+    <!-- Empty Search State -->
+    <div id="search-empty" class="hidden text-center py-16">
+      <div class="w-16 h-16 rounded-full bg-slate-800 text-slate-500 flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="search-x" class="w-8 h-8"></i>
+      </div>
+      <h4 class="text-lg font-bold text-white mb-1">未搜索到匹配的站点或标签</h4>
+      <p class="text-xs text-slate-400">试试其他关键词，如“4K”、“免费”、“日韩”、“里番”或“百科”。</p>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER (LINK 4) ================= -->
+  <footer class="bg-black border-t border-star-border py-12 px-4 sm:px-6 lg:px-8 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      
+      <div class="md:col-span-2 space-y-3">
+        <div class="flex items-center gap-2 text-white font-bold text-base">
+          <i data-lucide="compass" class="w-5 h-5 text-sky-400"></i>
+          <span>星航极速导航 (StarGPS)</span>
+        </div>
+        <p class="text-slate-400 max-w-md leading-relaxed text-xs">
+          全球领先的纯净中文成人网站导航系统。致力于整理经过严格安全验证的高清、无木马、无恶意扣费优质资源，为全球成年用户提供透明客观的网址领航。
+        </p>
+        <div class="text-[11px] text-slate-600">
+          ⚠️ 声明：本站仅供年满 18 周岁之成年人浏览，未成年人请主动关闭并离开。
+        </div>
+      </div>
+
+      <div>
+        <h5 class="text-slate-300 font-bold mb-3">核心板块速达</h5>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#cat-top" class="hover:text-sky-400 transition">🔥 每日必刷顶流</a></li>
+          <li><a href="#cat-free" class="hover:text-sky-400 transition">🎬 全球免费视频</a></li>
+          <li><a href="#cat-asia" class="hover:text-sky-400 transition">🇯🇵 亚洲东方精品</a></li>
+          <li><a href="#cat-west" class="hover:text-sky-400 transition">💎 欧美名厂电影</a></li>
+          <li><a href="#cat-anime" class="hover:text-sky-400 transition">🎨 动漫里番同人</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-slate-300 font-bold mb-3">友情链接与战略支持</h5>
+        <ul class="space-y-2 text-xs">
+          <!-- LINK 4 OF 4 -->
+          <li>
+            <a href="https://chengrenbaike.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-amber-400 font-semibold transition flex items-center gap-1" title="中文产业维基实体图谱">
+              <span>成人百科</span>
+              <i data-lucide="external-link" class="w-3 h-3 text-amber-400"></i>
+            </a>
+          </li>
+          <li><a href="#speed-test" class="hover:text-slate-300 transition">全网节点延迟检测</a></li>
+          <li><a href="#speed-test" class="hover:text-slate-300 transition">永久防封地址发布页</a></li>
+          <li><a href="#" class="hover:text-slate-300 transition">免责条款与隐私声明</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-6 border-t border-slate-900 text-center text-slate-600 text-[11px]">
+      © 2026 星航极速导航 (StarGPS). All rights reserved. 专为全球绅士打造的永不迷路领航仪。
+    </div>
+  </footer>
+
+  <!-- ================= CLIENT SCRIPTS ================= -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Instant Search
+    function handleSearch(query) {
+      const q = query.trim().toLowerCase();
+      const items = document.querySelectorAll('.site-card-item');
+      let count = 0;
+
+      items.forEach(item => {
+        const name = (item.getAttribute('data-name') || '').toLowerCase();
+        const tags = (item.getAttribute('data-tags') || '').toLowerCase();
+        const text = item.innerText.toLowerCase();
+
+        if (!q || name.includes(q) || tags.includes(q) || text.includes(q)) {
+          item.classList.remove('hidden');
+          count++;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+
+      const countEl = document.getElementById('search-count');
+      const emptyEl = document.getElementById('search-empty');
+
+      if (q) {
+        countEl.innerText = count + ' 个结果';
+        if (count === 0) {
+          emptyEl.classList.remove('hidden');
+        } else {
+          emptyEl.classList.add('hidden');
+        }
+      } else {
+        countEl.innerText = '';
+        emptyEl.classList.add('hidden');
+      }
+    }
+
+    // Bookmark Helper
+    function bookmarkSite() {
+      if (window.sidebar && window.sidebar.addPanel) {
+        window.sidebar.addPanel(document.title, window.location.href, '');
+      } else if (window.external && ('AddFavorite' in window.external)) {
+        window.external.AddFavorite(location.href, document.title);
+      } else {
+        alert('请按下 Ctrl + D (Mac 用户请按 Command + D) 将星航极速导航加入浏览器收藏夹，永不迷路！');
+      }
+    }
+  </script>
+</body>
+</html>
